@@ -1,0 +1,36 @@
+{
+  "name": "agency-orchestrator",
+  "version": "0.1.0",
+  "description": "A tiny, zero-dependency multi-agent orchestrator you can run from your terminal. Type `npx agency-orchestrator demo` to watch a team of AI-style agents collaborate on a task.",
+  "type": "module",
+  "bin": {
+    "agency-orchestrator": "bin/cli.js"
+  },
+  "main": "src/index.js",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "demo": "node bin/cli.js demo",
+    "start": "node bin/cli.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent",
+    "agents",
+    "orchestrator",
+    "orchestration",
+    "multi-agent",
+    "cli",
+    "demo",
+    "agency"
+  ],
+  "author": "",
+  "license": "MIT"
+}
