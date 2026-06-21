@@ -3,3 +3,5 @@ npm-debug.log*
 *.tgz
 .DS_Store
 .env
+
+website/preview.png
