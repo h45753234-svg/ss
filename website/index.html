@@ -8,119 +8,140 @@
   <meta name="description" content="買電腦不踩雷，找弘主任。IT喵星人在地實體店、三家門市、獨家 3 年店保，一對一幫你配單。加 LINE 免費諮詢。" />
   <style>
     :root {
-      --bg: #0f1320; --bg-soft: #171c2e; --card: #1d2438; --line: #2a3350;
-      --text: #e8ecf6; --muted: #9aa6c4; --brand: #4f8cff; --brand-2: #38d39f;
-      --warn: #ffb454; --radius: 16px;
+      --bg: #ffffff;
+      --soft: #f4f6fb;
+      --card: #ffffff;
+      --line: #e6eaf2;
+      --ink: #18223a;        /* 主要文字：深藍墨 */
+      --muted: #66708a;      /* 次要文字 */
+      --brand: #1f3a8a;      /* 沉穩深藍 */
+      --brand-soft: #eaf0ff;
+      --line-green: #06c755;  /* LINE 綠 */
+      --star: #f5a623;
+      --radius: 14px;
+      --shadow: 0 1px 3px rgba(20,30,60,.06), 0 10px 30px rgba(20,30,60,.05);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif; background: var(--bg); color: var(--ink); line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     .wrap { width: min(1080px, 92%); margin: 0 auto; }
     a { color: inherit; text-decoration: none; }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.show { opacity: 1; transform: none; }
+    svg.ic { width: 26px; height: 26px; stroke: var(--brand); stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    header { position: sticky; top: 0; z-index: 20; background: rgba(15,19,32,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; }
-    .logo .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: 0 0 16px var(--brand); }
-    .logo small { color: var(--muted); font-weight: 500; font-size: 13px; }
-    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: transform .15s ease, box-shadow .15s ease; }
-    .btn-line { background: #06c755; color: #fff; }
-    .btn-line:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(6,199,85,.4); }
-    .btn-ghost { background: transparent; border: 1px solid var(--line); color: var(--text); }
-    .btn-ghost:hover { border-color: var(--brand); }
+    /* 導覽列 */
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
+    .logo { display: flex; align-items: baseline; gap: 8px; font-weight: 800; font-size: 20px; letter-spacing: -.5px; }
+    .logo small { color: var(--muted); font-weight: 600; font-size: 13px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: transform .12s ease, box-shadow .12s ease, background .12s ease; }
+    .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 18px rgba(6,199,85,.25); }
+    .btn-line:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(6,199,85,.35); }
+    .btn-ghost { background: #fff; border: 1px solid var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+    .btn .ic { width: 18px; height: 18px; stroke: currentColor; }
 
-    .hero { position: relative; padding: 70px 0 60px; overflow: hidden; }
-    .hero .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .45; z-index: 0; }
-    .hero .blob.b1 { width: 420px; height: 420px; background: #2b5cff; top: -120px; right: -80px; animation: float1 14s ease-in-out infinite; }
-    .hero .blob.b2 { width: 360px; height: 360px; background: #19b58a; bottom: -140px; left: -100px; animation: float2 16s ease-in-out infinite; }
-    @keyframes float1 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-30px,30px);} }
-    @keyframes float2 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(40px,-20px);} }
-    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.3fr .9fr; gap: 40px; align-items: center; }
-    .hero .eyebrow { color: var(--brand-2); font-weight: 700; letter-spacing: 1px; font-size: 14px; }
-    .hero h1 { font-size: clamp(30px,4.5vw,48px); line-height: 1.2; margin: 14px 0 16px; font-weight: 800; }
-    .hero h1 span { background: linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { color: var(--muted); font-size: 17px; max-width: 540px; }
-    .hero-cta { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
-    .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
-    .trust { display: flex; gap: 26px; margin-top: 36px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
-    .trust b { color: var(--text); font-size: 20px; display: block; }
-    /* 業務頭像卡 */
-    .me-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; text-align: center; }
-    .me-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 16px; background: linear-gradient(135deg,var(--brand),var(--brand-2)); display: flex; align-items: center; justify-content: center; font-size: 44px; color: #06121f; font-weight: 800; }
-    .me-card h3 { font-size: 20px; }
-    .me-card .role { color: var(--brand-2); font-size: 14px; margin: 4px 0 14px; }
+    /* 主視覺 */
+    .hero { padding: 72px 0 64px; background: linear-gradient(180deg, var(--soft), #fff); border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 48px; align-items: center; }
+    .eyebrow { display: inline-block; color: var(--brand); background: var(--brand-soft); font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; }
+    .hero h1 { font-size: clamp(30px,4.6vw,50px); line-height: 1.18; margin: 18px 0 16px; font-weight: 800; letter-spacing: -1px; }
+    .hero h1 b { color: var(--brand); }
+    .hero p { color: var(--muted); font-size: 17px; max-width: 520px; }
+    .hero-cta { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+    .note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+    .note b { color: var(--ink); }
+    .trust { display: flex; gap: 0; margin-top: 34px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 520px; }
+    .trust div { flex: 1; padding: 16px; text-align: center; border-right: 1px solid var(--line); }
+    .trust div:last-child { border-right: none; }
+    .trust b { color: var(--brand); font-size: 20px; display: block; }
+    .trust span { color: var(--muted); font-size: 13px; }
+
+    /* 顧問卡 */
+    .me-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 30px; text-align: center; box-shadow: var(--shadow); }
+    .me-photo { width: 124px; height: 124px; border-radius: 50%; margin: 0 auto 16px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--brand); font-weight: 800; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); }
+    .me-card h3 { font-size: 21px; }
+    .me-card .role { color: var(--brand); font-size: 14px; font-weight: 600; margin: 4px 0 14px; }
     .me-card p { color: var(--muted); font-size: 14px; }
 
-    section { padding: 60px 0; position: relative; }
+    section { padding: 64px 0; }
     .section-head { text-align: center; margin-bottom: 40px; }
-    .section-head h2 { font-size: clamp(24px,4vw,34px); font-weight: 800; }
+    .section-head .tag { color: var(--brand); font-weight: 700; font-size: 14px; }
+    .section-head h2 { font-size: clamp(24px,3.6vw,34px); font-weight: 800; margin-top: 6px; letter-spacing: -.5px; }
     .section-head p { color: var(--muted); margin-top: 10px; }
 
-    .features { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .feature { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: transform .15s, border-color .15s; }
-    .feature:hover { transform: translateY(-4px); border-color: var(--brand); }
-    .feature .ico { font-size: 28px; }
-    .feature h3 { margin: 12px 0 8px; font-size: 18px; }
-    .feature p { color: var(--muted); font-size: 15px; }
+    /* 卡片通用 */
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .icon-box { width: 52px; height: 52px; border-radius: 12px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .card h3 { font-size: 18px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
 
-    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .step { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; }
-    .step .num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #06121f; background: linear-gradient(135deg,var(--brand),var(--brand-2)); margin-bottom: 12px; }
+    /* 服務流程 */
+    .soft-sec { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 22px; }
+    .step .num { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; background: var(--brand); margin-bottom: 14px; }
     .step h3 { font-size: 16px; margin-bottom: 6px; }
     .step p { color: var(--muted); font-size: 14px; }
 
+    /* 價格 */
     .products { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .product { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .15s, border-color .15s; }
-    .product:hover { transform: translateY(-4px); border-color: var(--brand); }
-    .product .thumb { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 50px; background: linear-gradient(135deg,var(--bg-soft),var(--card)); border-bottom: 1px solid var(--line); }
-    .product .body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-    .product .tag { align-self: flex-start; font-size: 12px; color: var(--brand-2); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
-    .product h3 { font-size: 18px; }
+    .product { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease; }
+    .product:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .product.featured { border-color: var(--brand); box-shadow: 0 0 0 1px var(--brand); }
+    .product .head { padding: 22px 22px 0; }
+    .product .ribbon { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--brand); padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .product .tag { display: inline-block; font-size: 12px; color: var(--brand); background: var(--brand-soft); padding: 3px 10px; border-radius: 999px; }
+    .product .body { padding: 16px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .product h3 { font-size: 19px; }
     .product .spec { color: var(--muted); font-size: 14px; }
-    .product .price { margin-top: auto; font-size: 22px; font-weight: 800; }
+    .product .price { margin-top: auto; font-size: 24px; font-weight: 800; color: var(--ink); }
     .product .price small { color: var(--muted); font-weight: 400; font-size: 13px; }
 
-    .reviews-wrap { background: var(--bg-soft); }
-    .reviews { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .review { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-    .review .stars { color: var(--warn); letter-spacing: 2px; margin-bottom: 10px; }
+    /* 評價 */
+    .review { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .review .stars { color: var(--star); letter-spacing: 2px; margin-bottom: 12px; font-size: 15px; }
     .review p { font-size: 15px; }
-    .review .who { display: flex; align-items: center; gap: 12px; margin-top: 16px; color: var(--muted); font-size: 14px; }
-    .review .ava { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,var(--brand),var(--brand-2)); display: flex; align-items: center; justify-content: center; color: #06121f; font-weight: 800; }
+    .review .who { display: flex; align-items: center; gap: 12px; margin-top: 18px; color: var(--muted); font-size: 14px; }
+    .review .ava { width: 38px; height: 38px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; font-weight: 800; }
 
     /* 公司背書 */
-    .backing { background: linear-gradient(135deg, rgba(79,140,255,.10), rgba(56,211,159,.10)); border: 1px solid var(--line); border-radius: 22px; padding: 36px; }
-    .backing h2 { font-size: clamp(22px,4vw,30px); text-align: center; }
-    .backing .sub { color: var(--muted); text-align: center; margin: 10px auto 28px; max-width: 560px; }
+    .backing { background: var(--brand); color: #fff; border-radius: 22px; padding: 40px; }
+    .backing h2 { font-size: clamp(22px,3.6vw,30px); text-align: center; }
+    .backing .sub { color: #c8d4ff; text-align: center; margin: 10px auto 28px; max-width: 560px; }
     .stores { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .store { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
-    .store h3 { font-size: 17px; color: var(--brand-2); }
-    .store p { color: var(--muted); font-size: 14px; margin-top: 6px; }
-    .legal { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 24px; color: var(--muted); font-size: 14px; }
-    .legal b { color: var(--text); }
+    .store { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius); padding: 22px; }
+    .store h3 { font-size: 17px; color: #fff; }
+    .store p { color: #c8d4ff; font-size: 14px; margin-top: 6px; }
+    .legal { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 26px; color: #c8d4ff; font-size: 14px; }
+    .legal b { color: #fff; }
 
-    .faq-list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-    .faq { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 22px; }
+    /* FAQ */
+    .faq-list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 2px 22px; }
     .faq summary { cursor: pointer; list-style: none; padding: 18px 0; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "＋"; color: var(--brand-2); font-size: 20px; }
-    .faq[open] summary::after { content: "－"; }
+    .faq summary::after { content: "+"; color: var(--brand); font-size: 22px; font-weight: 400; }
+    .faq[open] summary::after { content: "\2013"; }
     .faq p { color: var(--muted); padding: 0 0 18px; font-size: 15px; }
 
-    .cta-box { background: linear-gradient(135deg, rgba(6,199,85,.16), rgba(56,211,159,.12)); border: 1px solid var(--line); border-radius: 24px; padding: 48px; text-align: center; }
-    .cta-box h2 { font-size: clamp(24px,4vw,32px); }
+    /* CTA */
+    .cta-box { background: var(--soft); border: 1px solid var(--line); border-radius: 22px; padding: 48px; text-align: center; }
+    .cta-box h2 { font-size: clamp(24px,3.6vw,32px); letter-spacing: -.5px; }
     .cta-box p { color: var(--muted); margin: 12px auto 26px; max-width: 520px; }
 
-    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; background: var(--soft); }
     .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
     @media (max-width: 820px) {
       .hero-grid { grid-template-columns: 1fr; }
       .me-card { max-width: 340px; margin: 0 auto; }
-      .features, .products, .reviews, .stores { grid-template-columns: 1fr; }
+      .grid-3, .products, .stores { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
+      .trust { max-width: 100%; }
     }
   </style>
 </head>
@@ -129,30 +150,35 @@
   <header>
     <div class="wrap nav">
       <!-- ↓↓↓ 改這裡:你的名字 ↓↓↓ -->
-      <div class="logo"><span class="dot"></span>弘主任<small>× IT喵星人</small></div>
+      <div class="logo">弘主任<small>× IT喵星人</small></div>
       <!-- ↓↓↓ 改這裡:換成你要客人加的 LINE 連結 ↓↓↓ -->
-      <a href="https://page.line.me/034hpmzh" class="btn btn-line">加 LINE 找弘主任</a>
+      <a href="https://page.line.me/034hpmzh" class="btn btn-line">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        加 LINE 找弘主任
+      </a>
     </div>
   </header>
 
-  <!-- ===== 主視覺 ===== -->
+  <!-- 主視覺 -->
   <section class="hero">
-    <div class="blob b1"></div><div class="blob b2"></div>
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow reveal">IT喵星人 電腦顧問・新莊 / 三重 / 桃園</div>
-        <!-- ↓↓↓ 改這裡:你的主標語 ↓↓↓ -->
-        <h1 class="reveal">買電腦怕踩雷？<br><span>問弘主任就對了</span></h1>
-        <p class="reveal">不用懂電腦，告訴我「用途 + 預算」，我幫你配到最適合的那台。實體門市、獨家 3 年店保，買得安心、用得放心。</p>
+        <span class="eyebrow reveal">IT喵星人 電腦顧問・新莊 / 三重 / 桃園</span>
+        <!-- ↓↓↓ 改這裡:主標語 ↓↓↓ -->
+        <h1 class="reveal">買電腦怕踩雷？<br><b>問弘主任就對了</b></h1>
+        <p class="reveal">不用懂電腦，只要告訴我「用途 + 預算」，我幫你配到最適合的那台。實體門市、獨家 3 年店保，買得安心、用得放心。</p>
         <div class="hero-cta reveal">
-          <a href="https://page.line.me/034hpmzh" class="btn btn-line">💬 加 LINE 免費幫你配單</a>
+          <a href="https://page.line.me/034hpmzh" class="btn btn-line">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+            加 LINE 免費幫你配單
+          </a>
           <a href="#products" class="btn btn-ghost">看價格帶</a>
         </div>
-        <p class="note reveal">加 LINE 後跟我說一聲「<b>找弘主任</b>」，我親自一對一服務你 🙌</p>
+        <p class="note reveal">加 LINE 後跟我說一聲「<b>找弘主任</b>」，我親自一對一服務你。</p>
         <div class="trust reveal">
-          <div><b>3 年店保</b>獨家加碼</div>
-          <div><b>3 家門市</b>找得到人</div>
-          <div><b>一對一</b>誠實配單</div>
+          <div><b>3 年</b><span>獨家店保</span></div>
+          <div><b>3 家</b><span>實體門市</span></div>
+          <div><b>1 對 1</b><span>誠實配單</span></div>
         </div>
       </div>
       <!-- ↓↓↓ 改這裡:之後換成你本人的照片 ↓↓↓ -->
@@ -165,26 +191,27 @@
     </div>
   </section>
 
-  <!-- ===== 為什麼找我 ===== -->
+  <!-- 為什麼找我 -->
   <section id="why">
     <div class="wrap">
       <div class="section-head reveal">
+        <div class="tag">為什麼選我</div>
         <h2>為什麼找我配，而不是自己亂買？</h2>
         <p>網路下單便宜一點，但「買錯、出事沒人理」更貴</p>
       </div>
-      <div class="features">
-        <div class="feature reveal">
-          <div class="ico">🎯</div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
           <h3>誠實配單，不亂加</h3>
           <p>依你的用途和預算量身配，不推銷你用不到的規格，每一分錢花在刀口上。</p>
         </div>
-        <div class="feature reveal">
-          <div class="ico">🏬</div>
-          <h3>實體門市，跑得掉？</h3>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v9h14v-9"/><path d="M9 19v-5h6v5"/></svg></div>
+          <h3>三家實體門市</h3>
           <p>背後是 IT喵星人三家實體門市，不是來路不明的賣家，找得到人、靠得住。</p>
         </div>
-        <div class="feature reveal">
-          <div class="ico">🛡️</div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>獨家 3 年店保</h3>
           <p>原廠保固之外再加碼 3 年店家保固，出問題 LINE 我一句話，我幫你扛到底。</p>
         </div>
@@ -192,10 +219,10 @@
     </div>
   </section>
 
-  <!-- ===== 服務流程 ===== -->
-  <section id="process">
+  <!-- 服務流程 -->
+  <section id="process" class="soft-sec">
     <div class="wrap">
-      <div class="section-head reveal"><h2>找我買，只要四步</h2><p>不用懂電腦，剩下的我幫你搞定</p></div>
+      <div class="section-head reveal"><div class="tag">服務流程</div><h2>找我買，只要四步</h2><p>不用懂電腦，剩下的我幫你搞定</p></div>
       <div class="steps">
         <div class="step reveal"><div class="num">1</div><h3>加我 LINE</h3><p>說用途和預算，例如「打遊戲、4 萬左右」。</p></div>
         <div class="step reveal"><div class="num">2</div><h3>我幫你配單報價</h3><p>清楚規格、透明報價，沒有黑箱。</p></div>
@@ -205,25 +232,23 @@
     </div>
   </section>
 
-  <!-- ===== 價格帶 ===== -->
+  <!-- 價格帶 -->
   <section id="products">
     <div class="wrap">
-      <div class="section-head reveal"><h2>三種價格帶，總有一台適合你</h2><p>以下為參考，實際配置依你的需求客製，加 LINE 報你最新價</p></div>
+      <div class="section-head reveal"><div class="tag">價格帶</div><h2>三種價格帶，總有一台適合你</h2><p>以下為參考，實際配置依你的需求客製，加 LINE 報你最新價</p></div>
       <div class="products">
         <div class="product reveal">
-          <div class="thumb">💻</div>
+          <div class="head"><span class="tag">文書・上網・追劇</span></div>
           <div class="body">
-            <span class="tag">文書・上網・追劇</span>
             <h3>入門實用機</h3>
             <p class="spec">參考：i5 ・ 16G ・ 512G SSD ・ 內顯</p>
             <div class="price">$20,000 <small>起</small></div>
             <a href="https://page.line.me/034hpmzh" class="btn btn-line">加 LINE 詢這台</a>
           </div>
         </div>
-        <div class="product reveal">
-          <div class="thumb">🎮</div>
+        <div class="product featured reveal">
+          <div class="head"><span class="ribbon">最多人選</span><br><span class="tag">電競・遊戲・剪輯</span></div>
           <div class="body">
-            <span class="tag">電競・遊戲・剪輯</span>
             <h3>主流效能機</h3>
             <p class="spec">參考：i5/i7 ・ 32G ・ 1TB SSD ・ RTX 顯卡</p>
             <div class="price">$40,000 <small>左右</small></div>
@@ -231,9 +256,8 @@
           </div>
         </div>
         <div class="product reveal">
-          <div class="thumb">🚀</div>
+          <div class="head"><span class="tag">繪圖・3D・AI・專業</span></div>
           <div class="body">
-            <span class="tag">繪圖・3D・專業工作</span>
             <h3>高階旗艦機</h3>
             <p class="spec">參考：i7/i9 ・ 64G ・ 2TB SSD ・ 高階顯卡</p>
             <div class="price">$70,000 <small>以上</small></div>
@@ -244,11 +268,11 @@
     </div>
   </section>
 
-  <!-- ===== 客戶評價 ===== -->
-  <section id="reviews" class="reviews-wrap">
+  <!-- 評價 -->
+  <section id="reviews" class="soft-sec">
     <div class="wrap">
-      <div class="section-head reveal"><h2>客戶怎麼說我</h2><p>以下為範例，之後換成客人誇你的真實對話截圖（最有說服力！）</p></div>
-      <div class="reviews">
+      <div class="section-head reveal"><div class="tag">客戶評價</div><h2>客戶怎麼說我</h2><p>以下為範例，之後換成客人誇你的真實對話截圖（最有說服力！）</p></div>
+      <div class="grid-3">
         <div class="review reveal"><div class="stars">★★★★★</div><p>「完全不懂電腦，弘主任很有耐心幫我配，價格透明，用到現在超順！」</p><div class="who"><div class="ava">陳</div><div>陳小姐 ・ 文書機</div></div></div>
         <div class="review reveal"><div class="stars">★★★★★</div><p>「打電動超順，組裝乾淨，3 年店保讓我很放心，朋友我都推弘主任！」</p><div class="who"><div class="ava">林</div><div>林先生 ・ 電競機</div></div></div>
         <div class="review reveal"><div class="stars">★★★★★</div><p>「工作要跑繪圖，弘主任推的規格很到位，沒亂加東西，售後也快。」</p><div class="who"><div class="ava">黃</div><div>黃先生 ・ 工作站</div></div></div>
@@ -256,7 +280,7 @@
     </div>
   </section>
 
-  <!-- ===== 公司背書(真實資料) ===== -->
+  <!-- 公司背書 -->
   <section id="backing">
     <div class="wrap">
       <div class="backing reveal">
@@ -277,10 +301,10 @@
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
+  <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="section-head reveal"><h2>常見問題</h2></div>
+      <div class="section-head reveal"><div class="tag">常見問題</div><h2>你可能想問的</h2></div>
       <div class="faq-list">
         <details class="faq reveal"><summary>我完全不懂電腦，可以找你嗎？</summary><p>當然！這正是我的專長。你只要說「用途 + 預算」，例如「文書上網、2 萬左右」，剩下我幫你配到好。</p></details>
         <details class="faq reveal"><summary>3 年店保是什麼？</summary><p>原廠保固之外，我們店家額外加碼 3 年保固。3 年內有問題你直接找我，不用自己跟廠商來回。</p></details>
@@ -290,13 +314,16 @@
     </div>
   </section>
 
-  <!-- ===== 最後行動呼籲 ===== -->
+  <!-- 行動呼籲 -->
   <section id="contact">
     <div class="wrap">
       <div class="cta-box reveal">
         <h2>準備好配一台對的電腦了嗎？</h2>
         <p>加我 LINE，說一聲「找弘主任」，免費幫你配單、報價，不買也沒關係。</p>
-        <a href="https://page.line.me/034hpmzh" class="btn btn-line">💬 現在就加 LINE 找弘主任</a>
+        <a href="https://page.line.me/034hpmzh" class="btn btn-line">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          現在就加 LINE 找弘主任
+        </a>
       </div>
     </div>
   </section>
