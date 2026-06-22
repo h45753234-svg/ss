@@ -18,6 +18,7 @@
       --brand-soft: #eaf0ff;
       --line-green: #06c755;  /* LINE 綠 */
       --star: #f5a623;
+      --neon: #16e0ff;       /* 電競霓虹(只在電競區用) */
       --radius: 14px;
       --shadow: 0 1px 3px rgba(20,30,60,.06), 0 10px 30px rgba(20,30,60,.05);
     }
@@ -136,6 +137,27 @@
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; background: var(--soft); }
     .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
+    /* 電競專區(深色霓虹,只有這一區走電競風) */
+    .esport { position: relative; overflow: hidden; color: #eaf0ff;
+      background:
+        radial-gradient(900px 360px at 82% -12%, rgba(22,224,255,.16), transparent),
+        radial-gradient(700px 320px at 0% 120%, rgba(124,58,237,.18), transparent),
+        linear-gradient(180deg, #0b1020, #0e1430);
+      border-top: 1px solid #1c2440; border-bottom: 1px solid #1c2440; }
+    .esport::before { content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 44px 44px; mask-image: linear-gradient(180deg, transparent, #000 40%, transparent); pointer-events: none; }
+    .esport .wrap { position: relative; z-index: 1; }
+    .esport .section-head h2 { color: #fff; }
+    .esport .section-head .tag { color: var(--neon); letter-spacing: 2px; }
+    .esport .section-head p { color: #9fb0d8; }
+    .esport .card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); }
+    .esport .card h3 { color: #fff; }
+    .esport .card p { color: #9fb0d8; }
+    .esport .icon-box { background: rgba(22,224,255,.12); }
+    .esport .icon-box .ic { stroke: var(--neon); }
+    .esport .card:hover { transform: translateY(-4px); border-color: var(--neon); box-shadow: 0 0 0 1px var(--neon), 0 14px 34px rgba(22,224,255,.18); }
+
     /* 浮動加 LINE 鈕(手機滑到哪都看得到) */
     .float-line { position: fixed; z-index: 50; right: 22px; bottom: 22px; background: var(--line-green); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 800; font-size: 15px; box-shadow: 0 8px 24px rgba(6,199,85,.45); transition: transform .15s ease; }
     .float-line:hover { transform: translateY(-2px); }
@@ -227,6 +249,40 @@
         <a href="https://page.line.me/034hpmzh" class="btn btn-line">
           <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
           加 LINE 配一台跑得動 AI 的電腦
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 電競專區 -->
+  <section id="esport" class="esport">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">電競主機</div>
+        <h2>為電競而生，打出你的勝場</h2>
+        <p>要好看，更要打得順。高 FPS、客製 RGB、散熱穩定不降頻，電競主機與周邊一站到位。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 11v2M6 12h2"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></div>
+          <h3>高 FPS 順順打</h3>
+          <p>依你玩的遊戲與螢幕更新率配到剛好，不卡頓、不掉幀，贏在反應快人一步。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 1 4 10c-.7.7-1 1.6-1 2H9c0-.4-.3-1.3-1-2A6 6 0 0 1 12 3z"/></svg></div>
+          <h3>客製 RGB 燈效</h3>
+          <p>機殼、燈條、水冷頭一起調，整線乾淨、燈光同步，整台就是你的門面。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></svg></div>
+          <h3>散熱穩定不降頻</h3>
+          <p>長時間開團、直播也不過熱降速，壓力測試到穩定才交機，耐操是基本。</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:30px" class="reveal">
+        <a href="https://page.line.me/034hpmzh" class="btn btn-line">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          加 LINE 配我的電競主機
         </a>
       </div>
     </div>
