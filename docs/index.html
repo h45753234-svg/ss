@@ -42,6 +42,15 @@
     .btn-ghost { background: #fff; border: 1px solid var(--line); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
     .btn .ic { width: 18px; height: 18px; stroke: currentColor; }
+    .btn-tt { background: #010101; color: #fff; }
+    .btn-tt:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+    .btn-icon { width: 46px; height: 46px; padding: 0; justify-content: center; }
+    .btn-tt svg { width: 20px; height: 20px; fill: currentColor; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .socials { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .socials a { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+    .socials a:hover { color: var(--ink); }
+    .socials svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* 主視覺 */
     .hero { position: relative; overflow: hidden; padding: 72px 0 64px; background: linear-gradient(180deg, var(--soft), #fff); border-bottom: 1px solid var(--line); }
@@ -192,11 +201,17 @@
     <div class="wrap nav">
       <!-- ↓↓↓ 改這裡:你的名字 ↓↓↓ -->
       <div class="logo">弘主任<small>× IT喵星人</small></div>
-      <!-- ↓↓↓ 改這裡:換成你要客人加的 LINE 連結 ↓↓↓ -->
-      <a href="https://page.line.me/034hpmzh" class="btn btn-line">
-        <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
-        加 LINE 找弘主任
-      </a>
+      <div class="nav-right">
+        <!-- ↓↓↓ 改這裡:抖音連結(右上小按鈕,目前連到第 1 個帳號) ↓↓↓ -->
+        <a href="https://www.tiktok.com/@tititi.2003" target="_blank" rel="noopener" class="btn btn-tt btn-icon" aria-label="抖音 TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
+        </a>
+        <!-- ↓↓↓ 改這裡:換成你要客人加的 LINE 連結 ↓↓↓ -->
+        <a href="https://page.line.me/034hpmzh" class="btn btn-line">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          加 LINE 找弘主任
+        </a>
+      </div>
     </div>
   </header>
 
@@ -454,6 +469,17 @@
   <footer>
     <div class="wrap foot">
       <div>© 2026 弘主任 × IT喵星人 ｜ 傑芸資訊有限公司</div>
+      <div class="socials">
+        <!-- ↓↓↓ 改這裡:抖音帳號 ↓↓↓ -->
+        <a href="https://www.tiktok.com/@tititi.2003" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
+          @tititi.2003
+        </a>
+        <a href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
+          @sss_9817
+        </a>
+      </div>
       <div>統編：90690511 ｜ 電話：02-8262-0000</div>
     </div>
   </footer>
