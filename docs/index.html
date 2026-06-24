@@ -22,6 +22,8 @@
       --brand-soft: #eaf0ff;
       --line-green: #06c755;  /* LINE 綠 */
       --star: #f5a623;
+      --gold: #f5a623;       /* 金橘強調色(品牌主題,呼應 itmeow.studio) */
+      --gold-soft: #fff3df;
       --neon: #16e0ff;       /* 電競霓虹(只在電競區用) */
       --radius: 14px;
       --shadow: 0 1px 3px rgba(20,30,60,.06), 0 10px 30px rgba(20,30,60,.05);
@@ -92,7 +94,10 @@
 
     section { padding: 64px 0; }
     .section-head { text-align: center; margin-bottom: 40px; }
-    .section-head .tag { color: var(--brand); font-weight: 700; font-size: 14px; }
+    .section-head .tag { color: var(--gold); font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+    /* 金色關鍵字 + 句號收尾(itmeow.studio 風格) */
+    .gold { color: var(--gold); }
+    .dot-end { color: var(--gold); }
     .section-head h2 { font-size: clamp(24px,3.6vw,34px); font-weight: 800; margin-top: 6px; letter-spacing: -.5px; }
     .section-head p { color: var(--muted); margin-top: 10px; }
 
@@ -153,11 +158,25 @@
     .faq[open] summary::after { content: "\2013"; }
     .faq p { color: var(--muted); padding: 0 0 18px; font-size: 15px; }
 
-    /* CTA */
-    .cta-box { background: var(--soft); border: 1px solid var(--line); border-radius: 22px; padding: 48px; text-align: center; }
-    .cta-mascot { width: 96px; height: 96px; object-fit: contain; margin-bottom: 8px; }
-    .cta-box h2 { font-size: clamp(24px,3.6vw,32px); letter-spacing: -.5px; }
-    .cta-box p { color: var(--muted); margin: 12px auto 26px; max-width: 520px; }
+    /* 聯絡(聊聊吧)— itmeow.studio 風格深藍兩卡 */
+    .contact-sec { background: radial-gradient(700px 300px at 85% -10%, rgba(245,166,35,.12), transparent), linear-gradient(180deg, #16224a, #1f3a8a); color: #fff; }
+    .contact-sec .section-head h2 { color: #fff; }
+    .contact-sec .section-head p { color: #c8d4ff; }
+    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 820px; margin: 0 auto; }
+    .ccard { display: flex; align-items: center; gap: 16px; padding: 22px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); transition: transform .15s ease, border-color .15s ease; }
+    .ccard:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .cc-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+    .cc-icon.line { background: var(--line-green); }
+    .cc-icon.mail { background: var(--gold); }
+    .cc-icon svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .cc-icon.mail svg { fill: #fff; stroke: none; }
+    .cc-text { display: flex; flex-direction: column; }
+    .cc-label { color: #c8d4ff; font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+    .cc-title { color: #fff; font-weight: 800; font-size: 18px; margin: 2px 0; }
+    .cc-sub { color: #9fb0d8; font-size: 13px; }
+    .cc-arrow { margin-left: auto; color: var(--gold); font-size: 20px; font-weight: 800; }
+    .contact-sec .cta-mascot { display: block; width: 90px; height: 90px; object-fit: contain; margin: 30px auto 0; }
+    @media (max-width: 820px) { .contact-cards { grid-template-columns: 1fr; } }
 
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; background: var(--soft); }
     .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -259,7 +278,7 @@
       <div>
         <span class="eyebrow reveal">IT喵星人 電腦顧問・新莊 / 三重 / 桃園</span>
         <!-- ↓↓↓ 改這裡:主標語 ↓↓↓ -->
-        <h1 class="reveal">買電腦怕踩雷？<br><b><span class="hl">問弘主任就對了</span></b></h1>
+        <h1 class="reveal">買電腦怕踩雷？<br>問<span class="gold">弘主任</span>就對了<span class="dot-end">。</span></h1>
         <p class="reveal">不用懂電腦，只要告訴我「用途 + 預算」，我幫你配到最適合的那台。<b style="color:var(--brand)">想玩 AI 繪圖、在家跑 AI？</b>我也幫你配跑得動的那台。實體門市、獨家 3 年店保，買得安心。</p>
         <div class="hero-cta reveal">
           <a href="https://page.line.me/034hpmzh" class="btn btn-line">
@@ -289,7 +308,7 @@
   <section id="ai" class="soft-sec">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="tag">AI 時代</div>
+        <div class="tag">AI ERA・AI 時代</div>
         <h2>想玩 AI？電腦要夠力才跑得動</h2>
         <p>AI 繪圖、在家跑自己的 AI，吃的是顯卡與記憶體，配錯就卡、就跳錯誤。我幫你配對的，不多花冤枉錢。</p>
       </div>
@@ -323,7 +342,7 @@
   <section id="esport" class="esport">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="tag">電競主機</div>
+        <div class="tag">GAMING・電競主機</div>
         <h2>為電競而生，打出你的勝場</h2>
         <p>要好看，更要打得順。高 FPS、客製 RGB、散熱穩定不降頻，電競主機與周邊一站到位。</p>
       </div>
@@ -357,7 +376,7 @@
   <section id="why">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="tag">為什麼選我</div>
+        <div class="tag">WHY US・為什麼選我</div>
         <h2><img class="deco" src="img/cat-tie.png" alt="">為什麼找我配，而不是自己亂買？</h2>
         <p>網路下單便宜一點，但「買錯、出事沒人理」更貴</p>
       </div>
@@ -384,7 +403,7 @@
   <!-- 服務流程 -->
   <section id="process" class="soft-sec">
     <div class="wrap">
-      <div class="section-head reveal"><div class="tag">服務流程</div><h2>找我買，只要四步</h2><p>不用懂電腦，剩下的我幫你搞定</p></div>
+      <div class="section-head reveal"><div class="tag">HOW IT WORKS・服務流程</div><h2>找我買，只要四步</h2><p>不用懂電腦，剩下的我幫你搞定</p></div>
       <div class="steps">
         <div class="step reveal"><div class="num">1</div><h3>加我 LINE</h3><p>說用途和預算，例如「打遊戲、4 萬左右」。</p></div>
         <div class="step reveal"><div class="num">2</div><h3>我幫你配單報價</h3><p>清楚規格、透明報價，沒有黑箱。</p></div>
@@ -397,7 +416,7 @@
   <!-- 價格帶 -->
   <section id="products">
     <div class="wrap">
-      <div class="section-head reveal"><div class="tag">價格帶</div><h2>三種價格帶，總有一台適合你</h2><p>以下為參考，實際配置依你的需求客製，加 LINE 報你最新價</p></div>
+      <div class="section-head reveal"><div class="tag">PRICING・價格帶</div><h2>三種價格帶，總有一台適合你</h2><p>以下為參考，實際配置依你的需求客製，加 LINE 報你最新價</p></div>
       <div class="products">
         <div class="product reveal">
           <div class="head"><span class="tag">文書・上網・追劇</span></div>
@@ -433,7 +452,7 @@
   <!-- 評價 -->
   <section id="reviews" class="soft-sec">
     <div class="wrap">
-      <div class="section-head reveal"><div class="tag">客戶評價</div><h2>客戶怎麼說我 <img class="deco" src="img/cat-heart.png" alt=""></h2><p>以下為範例，之後換成客人誇你的真實對話截圖（最有說服力！）</p></div>
+      <div class="section-head reveal"><div class="tag">REVIEWS・客戶評價</div><h2>客戶怎麼說我 <img class="deco" src="img/cat-heart.png" alt=""></h2><p>以下為範例，之後換成客人誇你的真實對話截圖（最有說服力！）</p></div>
       <div class="grid-3">
         <div class="review reveal"><div class="stars">★★★★★</div><p>「完全不懂電腦，弘主任很有耐心幫我配，價格透明，用到現在超順！」</p><div class="who"><div class="ava">陳</div><div>陳小姐 ・ 文書機</div></div></div>
         <div class="review reveal"><div class="stars">★★★★★</div><p>「打電動超順，組裝乾淨，3 年店保讓我很放心，朋友我都推弘主任！」</p><div class="who"><div class="ava">林</div><div>林先生 ・ 電競機</div></div></div>
@@ -466,7 +485,7 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="section-head reveal"><div class="tag">常見問題</div><h2>你可能想問的</h2></div>
+      <div class="section-head reveal"><div class="tag">FAQ・常見問題</div><h2>你可能想問的</h2></div>
       <div class="faq-list">
         <details class="faq reveal"><summary>我完全不懂電腦，可以找你嗎？</summary><p>當然！這正是我的專長。你只要說「用途 + 預算」，例如「文書上網、2 萬左右」，剩下我幫你配到好。</p></details>
         <details class="faq reveal"><summary>3 年店保是什麼？</summary><p>原廠保固之外，我們店家額外加碼 3 年保固。3 年內有問題你直接找我，不用自己跟廠商來回。</p></details>
@@ -477,18 +496,29 @@
     </div>
   </section>
 
-  <!-- 行動呼籲 -->
-  <section id="contact">
+  <!-- 行動呼籲(聊聊吧) -->
+  <section id="contact" class="contact-sec">
     <div class="wrap">
-      <div class="cta-box reveal">
-        <img class="cta-mascot" src="img/mascot.png" alt="IT喵星人吉祥物" />
-        <h2>準備好配一台對的電腦了嗎？</h2>
-        <p>加我 LINE，說一聲「找弘主任」，免費幫你配單、報價，不買也沒關係。</p>
-        <a href="https://page.line.me/034hpmzh" class="btn btn-line">
-          <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
-          現在就加 LINE 找弘主任
+      <div class="section-head reveal">
+        <div class="tag">LET'S TALK・聊聊吧</div>
+        <h2>第一次諮詢 <span class="gold">不收錢</span><span class="dot-end">。</span></h2>
+        <p>把你的「用途 + 預算」傳給我，免費幫你配單、報價，不買也沒關係。</p>
+      </div>
+      <div class="contact-cards">
+        <!-- ↓↓↓ 改這裡:LINE 連結 ↓↓↓ -->
+        <a class="ccard reveal" href="https://page.line.me/034hpmzh">
+          <span class="cc-icon line"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
+          <span class="cc-text"><span class="cc-label">最快・FASTEST</span><span class="cc-title">加 LINE 找弘主任</span><span class="cc-sub">回覆最快，記得報「找弘主任」</span></span>
+          <span class="cc-arrow">→</span>
+        </a>
+        <!-- ↓↓↓ 改這裡:門市電話 ↓↓↓ -->
+        <a class="ccard reveal" href="tel:0282620000">
+          <span class="cc-icon mail"><svg viewBox="0 0 24 24"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-1z"/></svg></span>
+          <span class="cc-text"><span class="cc-label">正式・FORMAL</span><span class="cc-title">來電門市</span><span class="cc-sub">02-8262-0000</span></span>
+          <span class="cc-arrow">→</span>
         </a>
       </div>
+      <img class="cta-mascot reveal" src="img/mascot.png" alt="IT喵星人吉祥物" />
     </div>
   </section>
 
