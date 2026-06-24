@@ -6,6 +6,7 @@
   <!-- ↓↓↓ 改這裡:分頁標題 ↓↓↓ -->
   <title>弘主任 ｜ IT喵星人電腦顧問・買電腦、配 AI 電腦不踩雷</title>
   <meta name="description" content="買電腦不踩雷，找弘主任。想玩 AI 繪圖、在家跑 AI 也幫你配跑得動的那台。IT喵星人三家門市、獨家 3 年店保，加 LINE 免費配單。" />
+  <link rel="icon" type="image/png" href="img/mascot.png" />
   <style>
     :root {
       --bg: #ffffff;
@@ -35,7 +36,10 @@
     header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
     .logo { display: flex; align-items: baseline; gap: 8px; font-weight: 800; font-size: 20px; letter-spacing: -.5px; }
+    .logo img { width: 38px; height: 38px; object-fit: contain; }
     .logo small { color: var(--muted); font-weight: 600; font-size: 13px; }
+    .me-photo { overflow: hidden; }
+    .me-photo img { width: 100%; height: 100%; object-fit: contain; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: transform .12s ease, box-shadow .12s ease, background .12s ease; }
     .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 18px rgba(6,199,85,.25); }
     .btn-line:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(6,199,85,.35); }
@@ -200,7 +204,7 @@
   <header>
     <div class="wrap nav">
       <!-- ↓↓↓ 改這裡:你的名字 ↓↓↓ -->
-      <div class="logo">弘主任<small>× IT喵星人</small></div>
+      <div class="logo"><img src="img/mascot.png" alt="IT喵星人">弘主任<small>× IT喵星人</small></div>
       <div class="nav-right">
         <!-- ↓↓↓ 改這裡:抖音連結(右上小按鈕,主帳號) ↓↓↓ -->
         <a href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener" class="btn btn-tt btn-icon" aria-label="抖音 TikTok">
@@ -250,9 +254,9 @@
           <div><b>1 對 1</b><span>誠實配單</span></div>
         </div>
       </div>
-      <!-- ↓↓↓ 改這裡:之後換成你本人的照片 ↓↓↓ -->
+      <!-- ↓↓↓ 改這裡:目前用吉祥物,建議換成你本人(亮一點的)照片 ↓↓↓ -->
       <div class="me-card reveal">
-        <div class="me-photo">弘</div>
+        <div class="me-photo"><img src="img/cat-glasses.png" alt="弘主任"></div>
         <h3>弘主任</h3>
         <div class="role">IT喵星人 ・ 懂 AI 的電腦顧問</div>
         <p>專門幫不懂電腦的人配到「對的電腦」。從文書、電競到 AI 應用，從預算到售後，一條龍交給我就好。</p>
