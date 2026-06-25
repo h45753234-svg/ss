@@ -16,3 +16,4 @@ website/preview_contact.png
 package-lock.json
 website/crop_*.png
 website/preview_purple.png
+website/*.png
