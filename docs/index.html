@@ -50,6 +50,7 @@
     .logo small { color: var(--muted); font-weight: 600; font-size: 13px; }
     .me-photo { overflow: hidden; }
     .me-photo img { width: 100%; height: 100%; object-fit: contain; }
+    .me-photo svg { width: 100%; height: 100%; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: transform .12s ease, box-shadow .12s ease, background .12s ease; }
     .btn-line { background: var(--line-green); color: #fff; box-shadow: 0 6px 18px rgba(6,199,85,.25); }
     .btn-line:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(6,199,85,.35); }
@@ -310,7 +311,7 @@
       </div>
       <!-- ↓↓↓ 改這裡:建議換成你本人(亮一點的)照片,把下面的「弘」字改成 <img src=...> ↓↓↓ -->
       <div class="me-card reveal">
-        <div class="me-photo">智</div>
+        <div class="me-photo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="電腦配單顧問"><defs><clipPath id="meclip"><circle cx="50" cy="50" r="50"/></clipPath></defs><g clip-path="url(#meclip)"><rect width="100" height="100" fill="#eaf0ff"/><path d="M16 100 C16 78 32 70 50 70 C68 70 84 78 84 100 Z" fill="#1f3a8a"/><path d="M42 72 L50 82 L58 72" fill="none" stroke="#16306f" stroke-width="2"/><rect x="44" y="58" width="12" height="16" rx="6" fill="#eebf98"/><circle cx="50" cy="42" r="19" fill="#f6cda6"/><path d="M31 42 C31 26 41 21 50 21 C59 21 69 26 69 42 C69 35 64 31 58 31 C56 28 44 28 42 31 C36 31 31 35 31 42 Z" fill="#2a2f45"/><circle cx="43" cy="42" r="2.1" fill="#2a2f45"/><circle cx="57" cy="42" r="2.1" fill="#2a2f45"/><path d="M43 49 Q50 55 57 49" fill="none" stroke="#2a2f45" stroke-width="2.2" stroke-linecap="round"/><path d="M30 43 A20 21 0 0 1 70 43" fill="none" stroke="#c026d3" stroke-width="3.4" stroke-linecap="round"/><rect x="27" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><rect x="66" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><path d="M30 50 Q26 60 40 61" fill="none" stroke="#c026d3" stroke-width="3" stroke-linecap="round"/><circle cx="41" cy="61" r="2.4" fill="#c026d3"/></g></svg></div>
         <h3>智選電腦</h3>
         <div class="role">電競 × AI 電腦配單顧問</div>
         <p>專門幫不懂電腦的人配到「對的電腦」。從文書、電競到 AI 應用，從預算到售後，一條龍交給我就好。</p>
@@ -463,31 +464,7 @@
     </div>
   </section>
 
-  <!-- 真實口碑 -->
-  <section id="reviews" class="soft-sec">
-    <div class="wrap">
-      <div class="section-head reveal"><div class="tag">REVIEWS・客戶回饋</div><h2>客人說的，<span class="gold">比我說的準</span><span class="dot-end">。</span></h2><p>服務過的客人真實回饋（之後換成你自己的 LINE 好評截圖更有力）</p></div>
-
-      <!-- 真實評價卡 -->
-      <div class="grid-3">
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「來這裡組電腦對了，有會員系統，又有線上客服即時回覆。」</p><div class="who"><div class="ava">宏</div><div>宏昊 ・ 在地嚮導</div><span class="gtag">客戶回饋</span></div></div>
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「老闆不只專業，服務也好，說明完馬上幫我弄好，回家連上 WiFi 終於不再出問題，會推薦人來！」</p><div class="who"><div class="ava">盧</div><div>盧冠妤</div><span class="gtag">客戶回饋</span></div></div>
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「老闆跟員工都很專業，人也很和善，能清楚理解我的需求並迅速解決。」</p><div class="who"><div class="ava">吳</div><div>吳鎮宇</div><span class="gtag">客戶回饋</span></div></div>
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「在附近讀大學，一直找不到好店家，找到智選電腦幫我配，總算放心了。」</p><div class="who"><div class="ava">葉</div><div>葉凱維 ・ 在地嚮導</div><span class="gtag">客戶回饋</span></div></div>
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「經朋友介紹來的，老闆很熱心，不會硬要你配什麼零件，喜歡什麼配什麼。」</p><div class="who"><div class="ava">黃</div><div>黃得瑋</div><span class="gtag">客戶回饋</span></div></div>
-        <div class="review reveal"><div class="stars">★★★★★</div><p>「老闆人很好，幫我把電腦升級到最好，有問題用 LINE 詢問回覆很快，組裝或維修都推薦來。」</p><div class="who"><div class="ava">朱</div><div>朱宥丞</div><span class="gtag">客戶回饋</span></div></div>
-      </div>
-
-      <!-- 實機作品牆 -->
-      <h3 class="gallery-title reveal">實機作品參考</h3>
-      <div class="gallery">
-        <figure class="reveal"><img src="img/build1.jpg" alt="客製電競主機" loading="lazy"></figure>
-        <figure class="reveal"><img src="img/build2.jpg" alt="RGB 電競主機" loading="lazy"></figure>
-        <figure class="reveal"><img src="img/build3.jpg" alt="實機組裝" loading="lazy"></figure>
-        <figure class="reveal"><img src="img/build4.jpg" alt="實機組裝" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
+  <!-- 真實口碑(已清空,等放你自己的客戶好評/作品) -->
 
 
   <!-- FAQ -->
