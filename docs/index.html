@@ -77,14 +77,15 @@
     .socials svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* 主視覺 */
-    .hero { position: relative; overflow: hidden; padding: 72px 0 64px; background: radial-gradient(820px 360px at 82% -12%, rgba(214,51,224,.16), transparent), radial-gradient(680px 320px at -5% 8%, rgba(22,224,255,.10), transparent); }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-    .hero-net { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .7; }
-    /* 文字反差:左側加深,讓標題更跳、更好讀 */
-    .hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: linear-gradient(90deg, rgba(10,13,23,.92) 0%, rgba(10,13,23,.6) 42%, rgba(10,13,23,0) 72%); }
+    /* 主視覺:真實 RGB 主機大圖 + 深色漸層(左深右透,字好讀) */
+    .hero { position: relative; overflow: hidden; padding: 110px 0 96px; min-height: 78vh; display: flex; align-items: center;
+      background:
+        linear-gradient(90deg, rgba(8,10,18,.97) 0%, rgba(8,10,18,.86) 42%, rgba(8,10,18,.45) 78%, rgba(8,10,18,.30) 100%),
+        linear-gradient(180deg, rgba(8,10,18,.6), rgba(8,10,18,.2) 40%, rgba(8,10,18,.85)),
+        url("img/build1.jpg") center right / cover no-repeat;
+      border-bottom: 1px solid var(--line); }
     .hero .wrap { position: relative; z-index: 1; }
-    .hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 48px; align-items: center; }
+    .hero-grid { display: block; max-width: 640px; }
     .eyebrow { display: inline-block; color: var(--brand); background: var(--brand-soft); font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; }
     .hero h1 { font-size: clamp(30px,4.6vw,50px); line-height: 1.18; margin: 18px 0 16px; font-weight: 800; letter-spacing: -1px; }
     .hero h1 b { color: var(--brand); }
@@ -97,13 +98,6 @@
     .trust div:last-child { border-right: none; }
     .trust b { color: var(--brand); font-size: 20px; display: block; }
     .trust span { color: var(--muted); font-size: 13px; }
-
-    /* 顧問卡 */
-    .me-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 30px; text-align: center; box-shadow: var(--shadow); }
-    .me-photo { width: 124px; height: 124px; border-radius: 50%; margin: 0 auto 16px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--brand); font-weight: 800; border: 2px solid var(--line); box-shadow: 0 0 0 1px var(--line); }
-    .me-card h3 { font-size: 21px; }
-    .me-card .role { color: var(--brand); font-size: 14px; font-weight: 600; margin: 4px 0 14px; }
-    .me-card p { color: var(--muted); font-size: 14px; }
 
     section, footer { position: relative; z-index: 1; }
     section { padding: 64px 0; }
@@ -235,7 +229,6 @@
     .esport .wrap { position: relative; z-index: 1; }
     @media (prefers-reduced-motion: reduce) {
       .esport::before, .esport::after { animation: none; }
-      .hero-bg * { animation: none !important; }
     }
     .esport .section-head h2 { color: #fff; }
     .esport .section-head .tag { color: var(--neon); letter-spacing: 2px; }
@@ -254,8 +247,6 @@
     .float-line .ic { width: 20px; height: 20px; stroke: currentColor; }
 
     @media (max-width: 820px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .me-card { max-width: 340px; margin: 0 auto; }
       .grid-3, .products, .stores { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
       .steps::before { display: none; }
@@ -296,10 +287,8 @@
     </div>
   </header>
 
-  <!-- 主視覺 -->
+  <!-- 主視覺(真實 RGB 主機大圖) -->
   <section class="hero">
-    <!-- 背景:AI 神經網路節點 + 連線(動態可視覺化) -->
-    <canvas class="hero-net" id="heroNet" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow reveal">電腦配單顧問・電競 × AI × 客製化</span>
@@ -319,13 +308,6 @@
           <div><b>實體店</b><span>組裝出貨</span></div>
           <div><b>1 對 1</b><span>誠實配單</span></div>
         </div>
-      </div>
-      <!-- 顧問頭像卡 -->
-      <div class="me-card reveal">
-        <div class="me-photo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="電腦配單顧問"><defs><clipPath id="meclip"><circle cx="50" cy="50" r="50"/></clipPath></defs><g clip-path="url(#meclip)"><rect width="100" height="100" fill="#eaf0ff"/><path d="M16 100 C16 78 32 70 50 70 C68 70 84 78 84 100 Z" fill="#1f3a8a"/><path d="M42 72 L50 82 L58 72" fill="none" stroke="#16306f" stroke-width="2"/><rect x="44" y="58" width="12" height="16" rx="6" fill="#eebf98"/><circle cx="50" cy="42" r="19" fill="#f6cda6"/><path d="M31 42 C31 26 41 21 50 21 C59 21 69 26 69 42 C69 35 64 31 58 31 C56 28 44 28 42 31 C36 31 31 35 31 42 Z" fill="#2a2f45"/><circle cx="43" cy="42" r="2.1" fill="#2a2f45"/><circle cx="57" cy="42" r="2.1" fill="#2a2f45"/><path d="M43 49 Q50 55 57 49" fill="none" stroke="#2a2f45" stroke-width="2.2" stroke-linecap="round"/><path d="M30 43 A20 21 0 0 1 70 43" fill="none" stroke="#c026d3" stroke-width="3.4" stroke-linecap="round"/><rect x="27" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><rect x="66" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><path d="M30 50 Q26 60 40 61" fill="none" stroke="#c026d3" stroke-width="3" stroke-linecap="round"/><circle cx="41" cy="61" r="2.4" fill="#c026d3"/></g></svg></div>
-        <h3>智選電腦</h3>
-        <div class="role">電競 × AI 電腦配單顧問</div>
-        <p>專門幫不懂電腦的人配到「對的電腦」。從文書、電競到 AI 應用，從預算到售後，一條龍交給我就好。</p>
       </div>
     </div>
   </section>
@@ -561,67 +543,6 @@
   <script>
     const io = new IntersectionObserver((es)=>{for(const e of es){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target);}}},{threshold:.12});
     document.querySelectorAll(".reveal").forEach((el)=>io.observe(el));
-
-    // 神經網路背景(流動節點 + 鄰近連線 + 遠景星點,整頁固定、隨滑動放大),純原生 canvas
-    (function(){
-      const c = document.getElementById("heroNet");
-      if (!c) return;
-      const hero = c.parentElement, ctx = c.getContext("2d");
-      const COLORS = ["#16e0ff", "#d633e0", "#5b8cff"];
-      let w, h, nodes, stars, raf, time = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let zoom = 1, zoomTarget = 1;
-      function onScroll(){
-        const max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
-        const p = Math.min(1, Math.max(0, (window.scrollY || 0) / max));
-        zoomTarget = 1 + p * 1.5;   // 越往下放大(景深衝擊)
-      }
-      function size(){
-        w = window.innerWidth; h = window.innerHeight;
-        c.width = w * dpr; c.height = h * dpr; c.style.width = w + "px"; c.style.height = h + "px";
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function init(){
-        size();
-        // 神經網路:會流動的節點 + 鄰近連線
-        const n = Math.max(40, Math.min(90, Math.floor(w / 15)));
-        nodes = [];
-        for (let i=0;i<n;i++) nodes.push({ x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.5, vy:(Math.random()-.5)*.5, col:COLORS[i%COLORS.length] });
-        // 少量遠景星點(景深)
-        const sn = Math.round(w * h / 16000);
-        stars = [];
-        for (let i=0;i<sn;i++) stars.push({ x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.1+.3, ph:Math.random()*6.28, col:COLORS[i%3] });
-      }
-      function frame(){
-        time += 0.02;
-        ctx.clearRect(0,0,w,h);
-        ctx.save();
-        ctx.translate(w/2, h/2); ctx.scale(zoom, zoom); ctx.translate(-w/2, -h/2);
-        for (const s of stars){ ctx.globalAlpha = 0.2 + 0.2*Math.sin(time + s.ph); ctx.fillStyle = s.col; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.3); ctx.fill(); }
-        for (let i=0;i<nodes.length;i++){
-          const a = nodes[i];
-          a.x += a.vx; a.y += a.vy;
-          if (a.x<0||a.x>w) a.vx*=-1;
-          if (a.y<0||a.y>h) a.vy*=-1;
-          for (let j=i+1;j<nodes.length;j++){
-            const b = nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
-            if (d < 150){
-              ctx.globalAlpha = (1 - d/150) * 0.5;
-              ctx.strokeStyle = a.col; ctx.lineWidth = 1;
-              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-            }
-          }
-        }
-        for (const a of nodes){ ctx.globalAlpha = .95; ctx.fillStyle = a.col; ctx.beginPath(); ctx.arc(a.x, a.y, 2, 0, 6.3); ctx.fill(); }
-        ctx.restore();
-        ctx.globalAlpha = 1;
-        zoom += (zoomTarget - zoom) * 0.06;
-        if (!reduce) raf = requestAnimationFrame(frame);
-      }
-      init(); onScroll(); frame();
-      addEventListener("scroll", onScroll, { passive: true });
-      let t; addEventListener("resize", ()=>{ clearTimeout(t); t=setTimeout(init, 200); });
-    })();
   </script>
 
 </body>
