@@ -84,7 +84,7 @@
     .hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg, rgba(10,13,23,.92) 0%, rgba(10,13,23,.6) 42%, rgba(10,13,23,0) 72%); }
     .hero .wrap { position: relative; z-index: 1; }
-    .hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 48px; align-items: center; }
+    .hero-grid { display: block; max-width: 640px; }
     .eyebrow { display: inline-block; color: var(--brand); background: var(--brand-soft); font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; }
     .hero h1 { font-size: clamp(30px,4.6vw,50px); line-height: 1.18; margin: 18px 0 16px; font-weight: 800; letter-spacing: -1px; }
     .hero h1 b { color: var(--brand); }
@@ -278,7 +278,7 @@
       <div class="logo"><img class="logo-mark" src="img/logo.svg" alt="智選電腦 logo" width="34" height="34">智選電腦<small>電競・AI・客製</small></div>
       <div class="nav-right">
         <!-- ↓↓↓ 改這裡:抖音連結(右上小按鈕,主帳號) ↓↓↓ -->
-        <a href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener" class="btn btn-tt btn-icon" aria-label="抖音 TikTok">
+        <a href="#YOUR_SOCIAL" target="_blank" rel="noopener" class="btn btn-tt btn-icon" aria-label="抖音 TikTok">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
         </a>
         <!-- ↓↓↓ 改這裡:換成你要客人加的 LINE 連結 ↓↓↓ -->
@@ -313,13 +313,6 @@
           <div><b>實體店</b><span>組裝出貨</span></div>
           <div><b>1 對 1</b><span>誠實配單</span></div>
         </div>
-      </div>
-      <!-- ↓↓↓ 改這裡:建議換成你本人(亮一點的)照片,把下面的「弘」字改成 <img src=...> ↓↓↓ -->
-      <div class="me-card reveal">
-        <div class="me-photo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="電腦配單顧問"><defs><clipPath id="meclip"><circle cx="50" cy="50" r="50"/></clipPath></defs><g clip-path="url(#meclip)"><rect width="100" height="100" fill="#eaf0ff"/><path d="M16 100 C16 78 32 70 50 70 C68 70 84 78 84 100 Z" fill="#1f3a8a"/><path d="M42 72 L50 82 L58 72" fill="none" stroke="#16306f" stroke-width="2"/><rect x="44" y="58" width="12" height="16" rx="6" fill="#eebf98"/><circle cx="50" cy="42" r="19" fill="#f6cda6"/><path d="M31 42 C31 26 41 21 50 21 C59 21 69 26 69 42 C69 35 64 31 58 31 C56 28 44 28 42 31 C36 31 31 35 31 42 Z" fill="#2a2f45"/><circle cx="43" cy="42" r="2.1" fill="#2a2f45"/><circle cx="57" cy="42" r="2.1" fill="#2a2f45"/><path d="M43 49 Q50 55 57 49" fill="none" stroke="#2a2f45" stroke-width="2.2" stroke-linecap="round"/><path d="M30 43 A20 21 0 0 1 70 43" fill="none" stroke="#c026d3" stroke-width="3.4" stroke-linecap="round"/><rect x="27" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><rect x="66" y="40" width="7" height="11" rx="3.5" fill="#c026d3"/><path d="M30 50 Q26 60 40 61" fill="none" stroke="#c026d3" stroke-width="3" stroke-linecap="round"/><circle cx="41" cy="61" r="2.4" fill="#c026d3"/></g></svg></div>
-        <h3>智選電腦</h3>
-        <div class="role">電競 × AI 電腦配單顧問</div>
-        <p>專門幫不懂電腦的人配到「對的電腦」。從文書、電競到 AI 應用，從預算到售後，一條龍交給我就好。</p>
       </div>
     </div>
   </section>
@@ -529,9 +522,9 @@
           <span class="cc-arrow">→</span>
         </a>
         <!-- ↓↓↓ 抖音:看更多實機與配單影片 ↓↓↓ -->
-        <a class="ccard reveal" href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener">
+        <a class="ccard reveal" href="#YOUR_SOCIAL" target="_blank" rel="noopener">
           <span class="cc-icon mail"><svg viewBox="0 0 24 24" fill="#fff"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg></span>
-          <span class="cc-text"><span class="cc-label">看更多・VIDEOS</span><span class="cc-title">抖音 @sss_9817</span><span class="cc-sub">實機、配單、AI 電腦影片</span></span>
+          <span class="cc-text"><span class="cc-label">看更多・VIDEOS</span><span class="cc-title">抖音 / IG(待設定)</span><span class="cc-sub">實機、配單、AI 電腦影片</span></span>
           <span class="cc-arrow">→</span>
         </a>
       </div>
@@ -543,13 +536,13 @@
       <div>© 2026 智選電腦・電腦配單顧問 ｜ 電競・AI・客製化電腦</div>
       <div class="socials">
         <!-- ↓↓↓ 改這裡:抖音帳號 ↓↓↓ -->
-        <a href="https://www.tiktok.com/@tititi.2003" target="_blank" rel="noopener">
+        <a href="#YOUR_SOCIAL" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
-          @tititi.2003
+          抖音(待設定)
         </a>
-        <a href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener">
+        <a href="#YOUR_SOCIAL" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.85 3.9 4 4.12v2.86c-1.4 0-2.72-.43-4-1.16v5.93a5.62 5.62 0 1 1-5.62-5.62c.3 0 .6.02.9.07v2.94a2.72 2.72 0 1 0 1.92 2.6V3h2.8z"/></svg>
-          @sss_9817
+          IG(待設定)
         </a>
       </div>
       <div>電腦由合作實體店組裝出貨・享原廠保固</div>
