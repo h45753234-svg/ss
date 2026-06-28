@@ -6,6 +6,14 @@
   <!-- ↓↓↓ 改這裡:分頁標題 ↓↓↓ -->
   <title>智選電腦｜電競・AI・客製化電腦 配單顧問</title>
   <meta name="description" content="買電腦不踩雷，交給智選電腦。電競、AI 繪圖、在家跑 AI、客製化主機，依你的用途與預算專人配單。電腦由合作的實體店專業組裝出貨，享原廠保固，加 LINE 免費諮詢。" />
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+  <!-- 分享預覽卡(貼到 LINE/FB/IG 會顯示圖卡) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="智選電腦｜電競・AI・客製化電腦 配單顧問" />
+  <meta property="og:description" content="買電腦不踩雷，交給智選電腦。專人依你的用途與預算配單，電競、AI、客製化主機一次到位。加 LINE 免費諮詢。" />
+  <meta property="og:image" content="https://h45753234-svg.github.io/ss/img/og.jpg" />
+  <meta property="og:url" content="https://h45753234-svg.github.io/ss/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet" />
@@ -47,6 +55,7 @@
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
     .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 20px; letter-spacing: -.5px; white-space: nowrap; }
     .logo img { width: 36px; height: 36px; object-fit: contain; flex: none; }
+    .logo-mark { width: 34px; height: 34px; border-radius: 9px; }
     .logo small { color: var(--muted); font-weight: 600; font-size: 13px; }
     .me-photo { overflow: hidden; }
     .me-photo img { width: 100%; height: 100%; object-fit: contain; }
@@ -103,6 +112,8 @@
 
     /* 卡片通用 */
     .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    @media (max-width: 820px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
     .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: transform .15s ease, box-shadow .15s ease; }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
     .icon-box { width: 52px; height: 52px; border-radius: 12px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
@@ -259,7 +270,7 @@
   <header>
     <div class="wrap nav">
       <!-- ↓↓↓ 改這裡:你的名字 ↓↓↓ -->
-      <div class="logo">智選電腦<small>電競・AI・客製</small></div>
+      <div class="logo"><img class="logo-mark" src="img/logo.svg" alt="智選電腦 logo" width="34" height="34">智選電腦<small>電競・AI・客製</small></div>
       <div class="nav-right">
         <!-- ↓↓↓ 改這裡:抖音連結(右上小按鈕,主帳號) ↓↓↓ -->
         <a href="https://www.tiktok.com/@sss_9817" target="_blank" rel="noopener" class="btn btn-tt btn-icon" aria-label="抖音 TikTok">
@@ -423,7 +434,7 @@
         <div class="step reveal"><div class="num">1</div><h3>加我 LINE</h3><p>說用途和預算，例如「打遊戲、4 萬左右」。</p></div>
         <div class="step reveal"><div class="num">2</div><h3>我幫你配單報價</h3><p>清楚規格、透明報價，沒有黑箱。</p></div>
         <div class="step reveal"><div class="num">3</div><h3>組裝＋測試</h3><p>專業組裝、灌好系統、測試到穩定才交機。</p></div>
-        <div class="step reveal"><div class="num">4</div><h3>售後 3 年店保</h3><p>交機後有問題，3 年內找我就對了。</p></div>
+        <div class="step reveal"><div class="num">4</div><h3>售後我顧到底</h3><p>交機後有問題，LINE 我一句話，我幫你協調處理，不讓你一個人面對。</p></div>
       </div>
     </div>
   </section>
@@ -464,7 +475,34 @@
     </div>
   </section>
 
-  <!-- 真實口碑(已清空,等放你自己的客戶好評/作品) -->
+  <!-- 我的承諾(暫放,之後可換成你自己的客戶好評/作品) -->
+  <section id="promise" class="soft-sec">
+    <div class="wrap">
+      <div class="section-head reveal"><div class="tag">PROMISE・我的承諾</div><h2>找我配，你可以<span class="gold">安心</span><span class="dot-end">。</span></h2><p>不是賣一台就跑，是把你顧到好</p></div>
+      <div class="grid-4">
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+          <h3>不買也沒關係</h3>
+          <p>第一次諮詢、配單、報價全免費，先給你方向，不逼單。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+          <h3>透明報價</h3>
+          <p>每個零件清楚列出，沒有黑箱、沒有隱藏費用。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3>用途優先</h3>
+          <p>依你的需求配剛好的規格，不超賣、不灌用不到的東西。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-box"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
+          <h3>一對一全程</h3>
+          <p>從配單、下單到售後，都是我親自跟，不踢皮球。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- FAQ -->
@@ -473,7 +511,7 @@
       <div class="section-head reveal"><div class="tag">FAQ・常見問題</div><h2>你可能想問的</h2></div>
       <div class="faq-list">
         <details class="faq reveal"><summary>我完全不懂電腦，可以找你嗎？</summary><p>當然！這正是我的專長。你只要說「用途 + 預算」，例如「文書上網、2 萬左右」，剩下我幫你配到好。</p></details>
-        <details class="faq reveal"><summary>3 年店保是什麼？</summary><p>原廠保固之外，我們店家額外加碼 3 年保固。3 年內有問題你直接找我，不用自己跟廠商來回。</p></details>
+        <details class="faq reveal"><summary>保固怎麼算？出問題找誰？</summary><p>電腦零件都享原廠保固；有任何狀況，LINE 我一句話，我幫你協調送修、處理到好，不用自己跟廠商來回。</p></details>
         <details class="faq reveal"><summary>想玩 AI（AI 繪圖、跑 AI 模型）要什麼電腦？</summary><p>關鍵在「顯卡的 VRAM（顯示記憶體）」越大越好，並建議用 NVIDIA 顯卡、記憶體 32G 以上、SSD 容量大一點。你跟我說想玩哪種 AI，我幫你抓剛好夠用又不浪費的等級。</p></details>
         <details class="faq reveal"><summary>可以到實體店取機嗎？還是只能線上？</summary><p>都可以！配合的實體店可現場取機、現場驗機，或加 LINE 由我線上幫你處理到好。</p></details>
         <details class="faq reveal"><summary>怎麼開始？</summary><p>點任何一顆「加 LINE」按鈕，加我之後說你的「用途 + 預算」，我親自幫你配到好。</p></details>

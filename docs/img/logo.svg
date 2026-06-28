@@ -1,0 +1,9 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="智選電腦">
+  <rect width="48" height="48" rx="12" fill="#1f3a8a"/>
+  <!-- 螢幕 -->
+  <rect x="11" y="13" width="26" height="18" rx="3" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+  <!-- 底座 -->
+  <path d="M20 35h8M24 31v4" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- 智選打勾(洋紫紅) -->
+  <path d="M17 22.5l4.3 4.3L31 17.5" fill="none" stroke="#c026d3" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
