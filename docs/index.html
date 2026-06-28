@@ -562,19 +562,19 @@
     const io = new IntersectionObserver((es)=>{for(const e of es){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target);}}},{threshold:.12});
     document.querySelectorAll(".reveal").forEach((el)=>io.observe(el));
 
-    // 多重幾何圖形背景(旋轉線框 + 遠景星點,隨滑動放大),純原生 canvas
+    // 神經網路背景(流動節點 + 鄰近連線 + 遠景星點,整頁固定、隨滑動放大),純原生 canvas
     (function(){
       const c = document.getElementById("heroNet");
       if (!c) return;
       const hero = c.parentElement, ctx = c.getContext("2d");
       const COLORS = ["#16e0ff", "#d633e0", "#5b8cff"];
-      let w, h, M, stars, raf, time = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let w, h, nodes, stars, raf, time = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
       const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
       let zoom = 1, zoomTarget = 1;
       function onScroll(){
         const max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
         const p = Math.min(1, Math.max(0, (window.scrollY || 0) / max));
-        zoomTarget = 1 + p * 1.8;   // 越往下放大越誇張(最多 ~2.8 倍)
+        zoomTarget = 1 + p * 1.5;   // 越往下放大(景深衝擊)
       }
       function size(){
         w = window.innerWidth; h = window.innerHeight;
@@ -583,32 +583,14 @@
       }
       function init(){
         size();
-        const m = Math.min(w, h);
-        // 幾何曼陀羅:圓周上的點互相連線(跳點)織成放射幾何網,雙環反向旋轉
-        M = {
-          cx: w/2, cy: h/2,
-          outer: { R: m*0.58, N: 36, steps:[1, 7, 13, 17], rot: 0,   spd: 0.0006 },
-          inner: { R: m*0.34, N: 24, steps:[1, 5, 11],     rot: 0.4, spd:-0.0011 }
-        };
-        const sn = Math.round(w * h / 18000);
+        // 神經網路:會流動的節點 + 鄰近連線
+        const n = Math.max(40, Math.min(90, Math.floor(w / 15)));
+        nodes = [];
+        for (let i=0;i<n;i++) nodes.push({ x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.5, vy:(Math.random()-.5)*.5, col:COLORS[i%COLORS.length] });
+        // 少量遠景星點(景深)
+        const sn = Math.round(w * h / 16000);
         stars = [];
         for (let i=0;i<sn;i++) stars.push({ x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.1+.3, ph:Math.random()*6.28, col:COLORS[i%3] });
-      }
-      function ring(cx, cy, R, N, rot, steps){
-        const pts = [];
-        for (let i=0;i<N;i++){ const a = rot + i/N*6.2832; pts.push([cx+Math.cos(a)*R, cy+Math.sin(a)*R]); }
-        // 放射輻條(中心星芒)
-        ctx.globalAlpha = 0.08; ctx.strokeStyle = COLORS[2]; ctx.lineWidth = 0.8;
-        ctx.beginPath();
-        for (const p of pts){ ctx.moveTo(cx, cy); ctx.lineTo(p[0], p[1]); }
-        ctx.stroke();
-        // 跳點和弦(每個 step 一種霓虹色)
-        steps.forEach((st, si) => {
-          ctx.globalAlpha = 0.18; ctx.strokeStyle = COLORS[si % COLORS.length]; ctx.lineWidth = 1;
-          ctx.beginPath();
-          for (let i=0;i<N;i++){ const a = pts[i], b = pts[(i+st)%N]; ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); }
-          ctx.stroke();
-        });
       }
       function frame(){
         time += 0.02;
@@ -616,9 +598,21 @@
         ctx.save();
         ctx.translate(w/2, h/2); ctx.scale(zoom, zoom); ctx.translate(-w/2, -h/2);
         for (const s of stars){ ctx.globalAlpha = 0.2 + 0.2*Math.sin(time + s.ph); ctx.fillStyle = s.col; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.3); ctx.fill(); }
-        M.outer.rot += M.outer.spd; M.inner.rot += M.inner.spd;
-        ring(M.cx, M.cy, M.outer.R, M.outer.N, M.outer.rot, M.outer.steps);
-        ring(M.cx, M.cy, M.inner.R, M.inner.N, M.inner.rot, M.inner.steps);
+        for (let i=0;i<nodes.length;i++){
+          const a = nodes[i];
+          a.x += a.vx; a.y += a.vy;
+          if (a.x<0||a.x>w) a.vx*=-1;
+          if (a.y<0||a.y>h) a.vy*=-1;
+          for (let j=i+1;j<nodes.length;j++){
+            const b = nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+            if (d < 150){
+              ctx.globalAlpha = (1 - d/150) * 0.5;
+              ctx.strokeStyle = a.col; ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+            }
+          }
+        }
+        for (const a of nodes){ ctx.globalAlpha = .95; ctx.fillStyle = a.col; ctx.beginPath(); ctx.arc(a.x, a.y, 2, 0, 6.3); ctx.fill(); }
         ctx.restore();
         ctx.globalAlpha = 1;
         zoom += (zoomTarget - zoom) * 0.06;
