@@ -212,6 +212,27 @@
     .contact-sec .cta-mascot { display: block; width: 90px; height: 90px; object-fit: contain; margin: 30px auto 0; }
     @media (max-width: 820px) { .contact-cards { grid-template-columns: 1fr; } }
 
+    /* 原創電競氛圍底圖:靜態霓虹光暈 + 細科技格線(純 CSS/SVG,零版權、不亂動) */
+    #promise { position: relative; overflow: hidden; }
+    #promise::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(680px 320px at 88% -10%, rgba(214,51,224,.18), transparent 70%),
+        radial-gradient(640px 300px at 4% 114%, rgba(22,224,255,.14), transparent 70%); }
+    #promise::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: radial-gradient(78% 70% at 50% 42%, #000 28%, transparent 76%);
+      mask-image: radial-gradient(78% 70% at 50% 42%, #000 28%, transparent 76%); }
+    #promise > .wrap { position: relative; z-index: 1; }
+    /* 聊聊吧:加一條霓虹分隔線 + 細格線疊在原本的光暈上 */
+    .contact-sec { border-top: 1px solid transparent; border-image: linear-gradient(90deg, transparent, var(--gold) 35%, var(--neon) 65%, transparent) 1; }
+    .contact-sec::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: radial-gradient(80% 80% at 50% 30%, #000 20%, transparent 78%);
+      mask-image: radial-gradient(80% 80% at 50% 30%, #000 20%, transparent 78%); }
+    .contact-sec .wrap { position: relative; z-index: 1; }
+
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; background: transparent; }
     .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
@@ -359,7 +380,7 @@
         <p>要好看，更要打得順。高 FPS、客製 RGB、散熱穩定不降頻，電競主機與周邊一站到位。</p>
       </div>
       <div class="esport-show reveal">
-        <div class="esport-photo"><img src="img/build3.jpg" alt="客製電競主機 RGB 燈效實機" loading="lazy"></div>
+        <div class="esport-photo"><img src="img/esport.jpg" alt="客製電競主機 RGB 燈效實機" loading="lazy"></div>
         <ul class="feat-list">
           <li>
             <div class="fic"><svg class="ic" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 11v2M6 12h2"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></div>
