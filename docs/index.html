@@ -212,6 +212,47 @@
     .contact-sec .cta-mascot { display: block; width: 90px; height: 90px; object-fit: contain; margin: 30px auto 0; }
     @media (max-width: 820px) { .contact-cards { grid-template-columns: 1fr; } }
 
+    /* 用途對照表(小白對號入座) */
+    .usecase { max-width: 940px; margin: 0 auto; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); }
+    .uc-row { display: grid; grid-template-columns: 1.5fr 1fr .9fr auto; gap: 16px; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--line); }
+    .uc-row:last-child { border-bottom: none; }
+    .uc-row.head { background: var(--soft); font-size: 12px; letter-spacing: 1px; color: var(--muted); font-weight: 700; text-transform: uppercase; padding: 12px 22px; }
+    .uc-use { font-weight: 700; color: var(--ink); font-size: 16px; }
+    .uc-use span { display: block; color: var(--muted); font-weight: 400; font-size: 13px; margin-top: 3px; }
+    .uc-machine { color: var(--brand); font-weight: 700; font-size: 15px; }
+    .uc-price { color: var(--ink); font-weight: 800; font-size: 17px; }
+    .uc-price small { color: var(--muted); font-weight: 400; font-size: 12px; display: block; }
+    .uc-cta a { font-size: 13px; padding: 9px 14px; white-space: nowrap; }
+    @media (max-width: 720px) {
+      .uc-row { grid-template-columns: 1fr auto; grid-template-areas: "use price" "machine cta"; row-gap: 10px; column-gap: 12px; }
+      .uc-row.head { display: none; }
+      .uc-use { grid-area: use; } .uc-price { grid-area: price; text-align: right; }
+      .uc-machine { grid-area: machine; align-self: center; } .uc-cta { grid-area: cta; text-align: right; }
+    }
+
+    /* 買電腦前先搞懂 3 件事 */
+    .know { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 980px; margin: 0 auto; }
+    .know .k { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; }
+    .know .kn { font-family: "Noto Serif TC", serif; font-size: 40px; font-weight: 900; color: var(--brand); opacity: .55; line-height: 1; }
+    .know h3 { font-size: 17px; margin: 12px 0 8px; }
+    .know p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    @media (max-width: 820px) { .know { grid-template-columns: 1fr; } }
+
+    /* 關於我(真人信任)*/
+    .about { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
+    .about-photo { width: 100%; aspect-ratio: 1/1; border-radius: 20px; background: var(--soft); border: 1px dashed var(--line); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; text-align: center; line-height: 1.6; overflow: hidden; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about h3 { font-size: 24px; }
+    .about .role { color: var(--brand); font-weight: 700; font-size: 14px; margin: 6px 0 14px; }
+    .about p { color: var(--muted); font-size: 15px; line-height: 1.75; }
+    @media (max-width: 720px) { .about { grid-template-columns: 1fr; text-align: center; max-width: 420px; } }
+
+    /* 真實對話截圖 */
+    .chats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; max-width: 900px; margin: 0 auto; }
+    .chat-shot { aspect-ratio: 9/16; border-radius: 14px; background: var(--soft); border: 1px dashed var(--line); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; text-align: center; padding: 10px; overflow: hidden; }
+    .chat-shot img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 820px) { .chats { grid-template-columns: 1fr 1fr; } }
+
     /* 原創電競氛圍底圖:靜態霓虹光暈 + 細科技格線(純 CSS/SVG,零版權、不亂動) */
     #why { position: relative; overflow: hidden; }
     #why::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -333,12 +374,73 @@
           </a>
           <a href="#products" class="btn btn-ghost">看價格帶</a>
         </div>
-        <p class="note reveal">加 LINE 跟我說「<b>用途 + 預算</b>」，我親自一對一幫你配。</p>
+        <p class="note reveal">加 LINE 跟我說「<b>用途 + 預算</b>」，我親自一對一幫你配。<b>問問也沒關係，不買我也會老實跟你說。</b></p>
         <div class="trust reveal">
           <div><b>原廠</b><span>正貨保固</span></div>
           <div><b>實體店</b><span>組裝出貨</span></div>
           <div><b>1 對 1</b><span>誠實配單</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 按用途對照(小白對號入座) -->
+  <section id="usecase" class="soft-sec">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">CHOOSE BY USE・按用途選</div>
+        <h2>不知道買哪台？先看你要拿來做什麼</h2>
+        <p>找到你的用途，大概抓多少預算一目了然。不用懂規格，剩下我幫你配。</p>
+      </div>
+      <div class="usecase reveal">
+        <div class="uc-row head"><div>你想拿來做什麼</div><div>建議機種</div><div>抓多少預算</div><div></div></div>
+        <div class="uc-row">
+          <div class="uc-use">文書・上網・追劇<span>打字、Office、YouTube、逛網拍</span></div>
+          <div class="uc-machine">入門文書機</div>
+          <div class="uc-price">1.5–1.8<small>萬(參考)</small></div>
+          <div class="uc-cta"><a href="#YOUR_LINE" class="btn btn-line">加 LINE 問這台</a></div>
+        </div>
+        <div class="uc-row">
+          <div class="uc-use">學生上課・報告・遠距<span>上課、打報告、視訊會議</span></div>
+          <div class="uc-machine">入門效能機</div>
+          <div class="uc-price">1.8–2.2<small>萬(參考)</small></div>
+          <div class="uc-cta"><a href="#YOUR_LINE" class="btn btn-line">加 LINE 問這台</a></div>
+        </div>
+        <div class="uc-row">
+          <div class="uc-use">剪片・繪圖・多開多工<span>剪影片、修圖、開一堆分頁</span></div>
+          <div class="uc-machine">創作效能機</div>
+          <div class="uc-price">3.5–4.5<small>萬(參考)</small></div>
+          <div class="uc-cta"><a href="#YOUR_LINE" class="btn btn-line">加 LINE 問這台</a></div>
+        </div>
+        <div class="uc-row">
+          <div class="uc-use">玩遊戲(吃 FPS)<span>電競遊戲、開實況、要順不卡</span></div>
+          <div class="uc-machine">電競主機</div>
+          <div class="uc-price">4 萬<small>起(參考)</small></div>
+          <div class="uc-cta"><a href="#YOUR_LINE" class="btn btn-line">加 LINE 問這台</a></div>
+        </div>
+        <div class="uc-row">
+          <div class="uc-use">想碰 AI(繪圖／跑模型)<span>AI 繪圖、在家跑自己的 AI</span></div>
+          <div class="uc-machine">AI 工作站</div>
+          <div class="uc-price">5 萬<small>起(參考)</small></div>
+          <div class="uc-cta"><a href="#YOUR_LINE" class="btn btn-line">加 LINE 問這台</a></div>
+        </div>
+      </div>
+      <p class="note reveal" style="text-align:center;margin-top:18px">以上是抓預算的大方向，實際配置我依你的需求客製。<b>加 LINE 問問也沒關係，不買我也會老實跟你說。</b></p>
+    </div>
+  </section>
+
+  <!-- 買電腦前先搞懂 3 件事(低承諾入口) -->
+  <section id="know">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">BEFORE YOU BUY・買之前</div>
+        <h2>買電腦前先搞懂這 3 件事，才不會被坑</h2>
+        <p>看懂這三點，你已經比八成的人更不會買錯。</p>
+      </div>
+      <div class="know">
+        <div class="k reveal"><div class="kn">01</div><h3>預算跟著用途走，不是越貴越好</h3><p>文書上網買到電競規格是白花錢；打遊戲卻買文書機又會卡。配得剛好，錢才花在刀口上。</p></div>
+        <div class="k reveal"><div class="kn">02</div><h3>電源和主機板，絕對不能省</h3><p>便宜機最常在這兩樣偷料——平常看不出來，出事(當機、燒壞)幾乎都從這裡開始。這正是我幫你把關的重點。</p></div>
+        <div class="k reveal"><div class="kn">03</div><h3>一定要有人幫你顧售後</h3><p>電腦會用好幾年，難免有狀況。壞了找得到人、有人幫你處理送修，比便宜那幾百塊重要太多。</p></div>
       </div>
     </div>
   </section>
@@ -432,6 +534,38 @@
     </div>
   </section>
 
+  <!-- 關於我 + 真實對話(真人信任)-->
+  <section id="about" class="soft-sec">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">ABOUT ME・關於我</div>
+        <h2>買電腦，先認識幫你配的人</h2>
+      </div>
+      <div class="about reveal">
+        <!-- ↓↓↓ 之後放你的真人照片:把下面整個 div 換成 <img src="img/me.jpg" alt="智選電腦顧問"> ↓↓↓ -->
+        <div class="about-photo">(這裡之後<br>放你的真人照片)</div>
+        <div>
+          <!-- ↓↓↓ 改這裡:你的稱呼 ↓↓↓ -->
+          <h3>(你的稱呼)</h3>
+          <div class="role">智選電腦・電腦配單顧問</div>
+          <!-- ↓↓↓ 改這裡:一句話自介 ↓↓↓ -->
+          <p>(一句話自介，例如：「配電腦 ○ 年，幫過上百位客人配到適合的機器。我只做誠實配單——你用不到的規格我不會賣你，讓你買得安心，比什麼都重要。」)</p>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:52px;margin-bottom:22px">
+        <h2 style="font-size:clamp(20px,3vw,26px)">真實客人怎麼說</h2>
+        <p>以下為實際 LINE 對話(姓名已打碼)</p>
+      </div>
+      <!-- ↓↓↓ 之後放真實對話截圖:把每個 .chat-shot 內的字換成 <img src="img/chat1.jpg" alt="客人真實對話"> ↓↓↓ -->
+      <div class="chats reveal">
+        <div class="chat-shot">(對話截圖 1)</div>
+        <div class="chat-shot">(對話截圖 2)</div>
+        <div class="chat-shot">(對話截圖 3)</div>
+        <div class="chat-shot">(對話截圖 4)</div>
+      </div>
+    </div>
+  </section>
+
   <!-- 服務流程 -->
   <section id="process" class="soft-sec">
     <div class="wrap">
@@ -448,7 +582,7 @@
   <!-- 價格帶 -->
   <section id="products">
     <div class="wrap">
-      <div class="section-head reveal"><div class="tag">PRICING・價格帶</div><h2>三種價格帶，總有一台適合你</h2><p>以下為參考，實際配置依你的需求客製，加 LINE 報你最新價</p></div>
+      <div class="section-head reveal"><div class="tag">PRICING・價格帶</div><h2>三種價格帶，總有一台適合你</h2><p>每台都已含組裝・測試・保固；加 LINE 報你含稅最新價。問問也沒關係，不買也沒關係。</p></div>
       <div class="products">
         <div class="product reveal">
           <div class="head"><span class="tag">文書・上網・追劇</span></div>
