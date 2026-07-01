@@ -230,6 +230,16 @@
       .uc-machine { grid-area: machine; align-self: center; } .uc-cta { grid-area: cta; text-align: right; }
     }
 
+    /* 免費配單表單(反轉入口) */
+    .quote-form { max-width: 620px; margin: 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px; }
+    .qf-field { margin-bottom: 18px; }
+    .qf-field label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--ink); }
+    .qf-field select, .qf-field input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--soft); color: var(--ink); font-size: 15px; font-family: inherit; box-sizing: border-box; }
+    .qf-field select:focus, .qf-field input:focus { outline: none; border-color: var(--brand); }
+    .qf-submit { width: 100%; justify-content: center; margin-top: 6px; font-size: 16px; padding: 15px; }
+    .qf-hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
+    .qf-hint b { color: var(--ink); }
+
     /* 買電腦前先搞懂 3 件事 */
     .know { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 980px; margin: 0 auto; }
     .know .k { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; }
@@ -429,6 +439,82 @@
     </div>
   </section>
 
+  <!-- 關於我 + 真實對話(真人信任,前移:小白先信人再看貨)-->
+  <section id="about" class="soft-sec">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">ABOUT ME・關於我</div>
+        <h2>買電腦，先認識幫你配的人</h2>
+      </div>
+      <div class="about reveal">
+        <!-- ↓↓↓ 之後放你的真人照片:把下面整個 div 換成 <img src="img/me.jpg" alt="智選電腦顧問"> ↓↓↓ -->
+        <div class="about-photo">(這裡之後<br>放你的真人照片)</div>
+        <div>
+          <!-- ↓↓↓ 改這裡:你的稱呼 ↓↓↓ -->
+          <h3>(你的稱呼)</h3>
+          <div class="role">智選電腦・電腦配單顧問</div>
+          <!-- ↓↓↓ 改這裡:一句話自介 ↓↓↓ -->
+          <p>(一句話自介，例如：「配電腦 ○ 年，幫過上百位客人配到適合的機器。我只做誠實配單——你用不到的規格我不會賣你，讓你買得安心，比什麼都重要。」)</p>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:52px;margin-bottom:22px">
+        <h2 style="font-size:clamp(20px,3vw,26px)">真實客人怎麼說</h2>
+        <p>以下為實際 LINE 對話(姓名已打碼)</p>
+      </div>
+      <!-- ↓↓↓ 之後放真實對話截圖:把每個 .chat-shot 內的字換成 <img src="img/chat1.jpg" alt="客人真實對話"> ↓↓↓ -->
+      <div class="chats reveal">
+        <div class="chat-shot">(對話截圖 1)</div>
+        <div class="chat-shot">(對話截圖 2)</div>
+        <div class="chat-shot">(對話截圖 3)</div>
+        <div class="chat-shot">(對話截圖 4)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 免費配單表單(反轉入口:不用開口,填一填我主動報) -->
+  <section id="quote">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="tag">FREE QUOTE・免費配單</div>
+        <h2>不想開口聊天？填 3 格，我幫你配</h2>
+        <p>不用懂電腦、不用想怎麼問。選一選，按下去會幫你把需求整理好、直接帶你到 LINE，我看到就回你。</p>
+      </div>
+      <div class="quote-form reveal">
+        <div class="qf-field">
+          <label for="qf-use">① 電腦要拿來做什麼？</label>
+          <select id="qf-use">
+            <option value="文書・上網・追劇">文書・上網・追劇</option>
+            <option value="學生上課・報告">學生上課・報告</option>
+            <option value="剪片・繪圖・多工">剪片・繪圖・多工</option>
+            <option value="玩遊戲(電競)">玩遊戲(電競)</option>
+            <option value="想碰 AI(繪圖／跑模型)">想碰 AI(繪圖／跑模型)</option>
+            <option value="還不確定，想問問">還不確定，想問問</option>
+          </select>
+        </div>
+        <div class="qf-field">
+          <label for="qf-budget">② 大概的預算？</label>
+          <select id="qf-budget">
+            <option value="2 萬以內">2 萬以內</option>
+            <option value="2–3 萬">2–3 萬</option>
+            <option value="3–4 萬">3–4 萬</option>
+            <option value="4–5 萬">4–5 萬</option>
+            <option value="5 萬以上">5 萬以上</option>
+            <option value="不確定，想聽建議">不確定，想聽建議</option>
+          </select>
+        </div>
+        <div class="qf-field">
+          <label for="qf-note">③ 想補充的(選填)</label>
+          <input id="qf-note" type="text" placeholder="例如:想指定顯卡、要不要螢幕、什麼時候要…">
+        </div>
+        <button type="button" class="btn btn-line qf-submit" id="qfSubmit">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3v-4.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          整理好，帶我到 LINE
+        </button>
+        <p class="qf-hint">按下去會自動把你選的內容複製好，並開啟 LINE，貼上送出就完成。<b>不買也沒關係。</b></p>
+      </div>
+    </div>
+  </section>
+
   <!-- 買電腦前先搞懂 3 件事(低承諾入口) -->
   <section id="know">
     <div class="wrap">
@@ -530,38 +616,6 @@
           <h3>不買也沒關係</h3>
           <p>第一次諮詢、配單、報價全免費，先給你方向，不逼單。</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 關於我 + 真實對話(真人信任)-->
-  <section id="about" class="soft-sec">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="tag">ABOUT ME・關於我</div>
-        <h2>買電腦，先認識幫你配的人</h2>
-      </div>
-      <div class="about reveal">
-        <!-- ↓↓↓ 之後放你的真人照片:把下面整個 div 換成 <img src="img/me.jpg" alt="智選電腦顧問"> ↓↓↓ -->
-        <div class="about-photo">(這裡之後<br>放你的真人照片)</div>
-        <div>
-          <!-- ↓↓↓ 改這裡:你的稱呼 ↓↓↓ -->
-          <h3>(你的稱呼)</h3>
-          <div class="role">智選電腦・電腦配單顧問</div>
-          <!-- ↓↓↓ 改這裡:一句話自介 ↓↓↓ -->
-          <p>(一句話自介，例如：「配電腦 ○ 年，幫過上百位客人配到適合的機器。我只做誠實配單——你用不到的規格我不會賣你，讓你買得安心，比什麼都重要。」)</p>
-        </div>
-      </div>
-      <div class="section-head reveal" style="margin-top:52px;margin-bottom:22px">
-        <h2 style="font-size:clamp(20px,3vw,26px)">真實客人怎麼說</h2>
-        <p>以下為實際 LINE 對話(姓名已打碼)</p>
-      </div>
-      <!-- ↓↓↓ 之後放真實對話截圖:把每個 .chat-shot 內的字換成 <img src="img/chat1.jpg" alt="客人真實對話"> ↓↓↓ -->
-      <div class="chats reveal">
-        <div class="chat-shot">(對話截圖 1)</div>
-        <div class="chat-shot">(對話截圖 2)</div>
-        <div class="chat-shot">(對話截圖 3)</div>
-        <div class="chat-shot">(對話截圖 4)</div>
       </div>
     </div>
   </section>
@@ -672,6 +726,26 @@
   <script>
     const io = new IntersectionObserver((es)=>{for(const e of es){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target);}}},{threshold:.12});
     document.querySelectorAll(".reveal").forEach((el)=>io.observe(el));
+
+    // 免費配單表單:把選項整理成訊息 → 複製到剪貼簿 → 開 LINE
+    // ↓↓↓ 換成你的 LINE 連結(跟其他按鈕一起換掉 #YOUR_LINE)↓↓↓
+    const LINE_URL = "#YOUR_LINE";
+    const qfBtn = document.getElementById("qfSubmit");
+    if (qfBtn) {
+      qfBtn.addEventListener("click", () => {
+        const use = document.getElementById("qf-use").value;
+        const budget = document.getElementById("qf-budget").value;
+        const note = document.getElementById("qf-note").value.trim();
+        let msg = "你好，我想配一台電腦：\n・用途：" + use + "\n・預算：" + budget;
+        if (note) msg += "\n・補充：" + note;
+        msg += "\n(從智選電腦網站來的)";
+        const go = () => window.open(LINE_URL, "_blank");
+        const done = () => { qfBtn.childNodes[qfBtn.childNodes.length-1].nodeValue = " 已複製！正在開 LINE…"; setTimeout(go, 350); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(done).catch(done);
+        } else { done(); }
+      });
+    }
   </script>
 
 </body>
